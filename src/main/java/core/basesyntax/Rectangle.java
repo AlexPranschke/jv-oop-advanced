@@ -18,13 +18,9 @@ public class Rectangle extends Figure {
     public double area() {
         return width*height;
     }
-    public void draw() {
-        if(getColor() != null){
-            System.out.println("Figure: " + this.getClass().getSimpleName()
-                    + ", area: " + area() + " sq.units, color: " + getColor() + " width: " + width + " height: " + height);
-        } else {
-            System.out.println("Color is null");
-        }
+    @Override
+    public String getSpecificProperties() {
+        return "width: " + width + " height: " + height;
     }
 
 }

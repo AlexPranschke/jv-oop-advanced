@@ -10,15 +10,16 @@ abstract public class Figure implements Drawable {
         this.color = color;
     }
     abstract public double area();
+    abstract public String getSpecificProperties();
+
 
     @Override
     public void draw() {
         if(color != null){
             System.out.println("Figure: " + this.getClass().getSimpleName()
-                    + ", area: " + area() + " sq.units, color: " + color);
+                    + ", area: " + area() + " " + getSpecificProperties() + " sq.units, color: " + color);
         } else {
             System.out.println("Color is null");
         }
     }
-
 }

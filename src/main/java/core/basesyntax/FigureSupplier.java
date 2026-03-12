@@ -7,22 +7,25 @@ public class FigureSupplier {
     }
 
     private final Random random = new Random();
+    private final static int DEFAULT_SIZE = 10;
 
     public Figure getRandomFigure() {
         int MAX_SIZE = 100;
-        String RandomFigure = Figures.values()[random.nextInt(Figures.values().length)].name();
-        return switch (RandomFigure) {
-            case "CIRCLE" -> new Circle(random.nextInt(MAX_SIZE));
-            case "SQUARE" -> new Square(random.nextInt(MAX_SIZE));
-            case "RECTANGLE" -> new Rectangle(random.nextInt(MAX_SIZE), random.nextInt(MAX_SIZE));
-            case "RIGHT_TRIANGLE" -> new RightTriangle(random.nextInt(MAX_SIZE), random.nextInt(MAX_SIZE));
+        String randomFigure = Figures.values()[random.nextInt(Figures.values().length)].name();
+        int randomValue1= random.nextInt(MAX_SIZE);
+        int randomValue2= random.nextInt(MAX_SIZE);
+        int randomValue3= random.nextInt(MAX_SIZE);
+        return switch (randomFigure) {
+            case "CIRCLE" -> new Circle(randomValue1);
+            case "SQUARE" -> new Square(randomValue1);
+            case "RECTANGLE" -> new Rectangle(randomValue1, randomValue2);
+            case "RIGHT_TRIANGLE" -> new RightTriangle(randomValue1, randomValue2);
             case "ISOSCELES_TRAPEZOID" ->
-                    new IsoscelesTrapezoid(random.nextInt(MAX_SIZE), random.nextInt(MAX_SIZE), random.nextInt(MAX_SIZE));
+                    new IsoscelesTrapezoid(randomValue1, randomValue2, randomValue3);
             default -> getDefaultFigure();
         };
     }
     public Figure getDefaultFigure() {
-        int DEFAULT_SIZE = 10;
         Figure defaultFigure = new Circle(DEFAULT_SIZE);
         defaultFigure.setColor(ColorSupplier.Color.WHITE.name());
         return defaultFigure;

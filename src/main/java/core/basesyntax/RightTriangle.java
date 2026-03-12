@@ -3,6 +3,7 @@ package core.basesyntax;
 public class RightTriangle extends Figure {
     private double base;
     private double height;
+    private final static double FORMULA_HELPER = 0.5;
 
     RightTriangle(double base, double height) {
         this.base = base;
@@ -16,16 +17,11 @@ public class RightTriangle extends Figure {
     }
     @Override
     public double area() {
-        double formula = 0.5;
-        return formula*base*height;
+        return FORMULA_HELPER*base*height;
     }
-    public void draw() {
-        if(getColor() != null){
-            System.out.println("Figure: " + this.getClass().getSimpleName()
-                    + ", area: " + area() + " sq.units, color: " + getColor() + " base: " + base + " height: " + height);
-        } else {
-            System.out.println("Color is null");
-        }
+    @Override
+    public String getSpecificProperties() {
+        return "base: " + base + " height: " + height;
     }
 
 
