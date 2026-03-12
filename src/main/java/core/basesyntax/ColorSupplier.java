@@ -12,7 +12,4 @@ public class ColorSupplier {
         return Color.values()[random.nextInt(Color.values().length)].name();
     }
 }
-//Color.values zwraca tablice wszystkich enum
-//ranndom.nextInt losowanie
-//name daje stringa z enum
 

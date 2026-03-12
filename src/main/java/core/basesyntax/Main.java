@@ -5,17 +5,18 @@ public class Main {
 
     public static void main(String[] args) {
         Figure[] figures = new Figure[ARRAY_SIZE];
-        ColorSupplier ColorSupplier = new ColorSupplier();
+        ColorSupplier colorSupplier = new ColorSupplier();
         FigureSupplier figureSupplier = new FigureSupplier();
 
         for (int i = 0; i < ARRAY_SIZE/2; i++) {
             figures[i] = figureSupplier.getRandomFigure();
-            figures[i].setColor(ColorSupplier.getRandomColor());
-            figures[i].print();
+            figures[i].setColor(colorSupplier.getRandomColor());
         }
         for (int i = ARRAY_SIZE/2; i < ARRAY_SIZE; i++) {
             figures[i] = figureSupplier.getDefaultFigure();
-            figures[i].print();
+        }
+        for (Figure figure : figures) {
+            figure.draw();
         }
     }
 }

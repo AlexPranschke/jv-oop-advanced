@@ -13,4 +13,12 @@ public class Square extends Figure {
     public double area() {
         return side*side;
     }
+    public void draw() {
+        if(getColor() != null){
+            System.out.println("Figure: " + this.getClass().getSimpleName()
+                    + ", area: " + area() + " sq.units, color: " + getColor() + " side: " + side);
+        } else {
+            System.out.println("Color is null");
+        }
+    }
 }

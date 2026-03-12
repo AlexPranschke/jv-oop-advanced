@@ -1,6 +1,6 @@
 package core.basesyntax;
 
-abstract public class Figure implements Printable {
+abstract public class Figure implements Drawable {
     private String color;
 
     public String getColor() {
@@ -12,7 +12,7 @@ abstract public class Figure implements Printable {
     abstract public double area();
 
     @Override
-    public void print() {
+    public void draw() {
         if(color != null){
             System.out.println("Figure: " + this.getClass().getSimpleName()
                     + ", area: " + area() + " sq.units, color: " + color);
@@ -20,5 +20,5 @@ abstract public class Figure implements Printable {
             System.out.println("Color is null");
         }
     }
-    //public Figure getDefaultFigure() - this method should always return a white circle with a radius of 10
+
 }

@@ -9,19 +9,21 @@ public class FigureSupplier {
     private final Random random = new Random();
 
     public Figure getRandomFigure() {
+        int MAX_SIZE = 100;
         String RandomFigure = Figures.values()[random.nextInt(Figures.values().length)].name();
         return switch (RandomFigure) {
-            case "CIRCLE" -> new Circle(random.nextInt(100));
-            case "SQUARE" -> new Square(random.nextInt(100));
-            case "RECTANGLE" -> new Rectrangle(random.nextInt(100), random.nextInt(100));
-            case "RIGHT_TRIANGLE" -> new RightTriangle(random.nextInt(100), random.nextInt(100));
+            case "CIRCLE" -> new Circle(random.nextInt(MAX_SIZE));
+            case "SQUARE" -> new Square(random.nextInt(MAX_SIZE));
+            case "RECTANGLE" -> new Rectangle(random.nextInt(MAX_SIZE), random.nextInt(MAX_SIZE));
+            case "RIGHT_TRIANGLE" -> new RightTriangle(random.nextInt(MAX_SIZE), random.nextInt(MAX_SIZE));
             case "ISOSCELES_TRAPEZOID" ->
-                    new IsoscelesTrapezoid(random.nextInt(100), random.nextInt(100), random.nextInt(100));
-            default -> null;
+                    new IsoscelesTrapezoid(random.nextInt(MAX_SIZE), random.nextInt(MAX_SIZE), random.nextInt(MAX_SIZE));
+            default -> getDefaultFigure();
         };
     }
     public Figure getDefaultFigure() {
-        Figure defaultFigure = new Circle(10);
+        int DEFAULT_SIZE = 10;
+        Figure defaultFigure = new Circle(DEFAULT_SIZE);
         defaultFigure.setColor(ColorSupplier.Color.WHITE.name());
         return defaultFigure;
     }
